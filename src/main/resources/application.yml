@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:bankcards_db}
+    username: ${POSTGRES_USER:admin}
+    password: ${POSTGRES_PASSWORD:root}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  liquibase:
+    enabled: true
+    change-log: classpath:db/migration/db.changelog-master.yaml
+
+crypto:
+  secret: ${CRYPTO_SECRET:0123456789abcdef0123456789abcdef}
+
+jwt:
+  secret: ${JWT_SECRET:5c34d92aeada2edc2066ddbcc91da048676732077a43089efb9e5c075db66334}
+
+server:
+  port: ${SERVER_PORT:8080}

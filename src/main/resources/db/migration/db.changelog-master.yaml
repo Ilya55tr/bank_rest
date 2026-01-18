@@ -1,0 +1,6 @@
+databaseChangeLog:
+    - include:
+        file: db/migration/db-changelog-0.0.1-init.sql
+
+
+
